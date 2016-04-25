@@ -1,19 +1,18 @@
 # Usage
 
-The config class provides restricted access to Laravel's `Guard` class often referred to as _Config_.
+The config class provides restricted access to Laravel's `Repository` class often for _config_.
 
-### Checking if a user is logged in.
+### Getting configuration values
 
-To check if a user is logged in or a guest use _check_ and _guest_ methods.
+To retrieve a config value you can use `config` _or_ `config_get`.
 
-    {% verbatim %}{{ config_check() }}{% endverbatim %} // true or false
+    {% verbatim %}
+    {{ config('app.debug') }} // false
+    {{ config_get('streams::distribution.name', 'Un-named') }} // PyroCMS
+    {% endverbatim %}
 
-    {% verbatim %}{{ config_guest() }}{% endverbatim %} // true or false
+### Checking if a config value exists
 
-### Returning the logged in user
+Use the `has` method to check if a config value exists.
 
-The user method returns the decorated instance of the logged in user or _null_ if none.
-
-    {% verbatim %}{{ config_user() }}{% endverbatim %} // The user presenter
-
-    {% verbatim %}{{ config_user().display_name }}{% endverbatim %} // Ryan Thompson
+    {% verbatim %}{{ config_exists('dummy') }}{% endverbatim %} // false

@@ -2,6 +2,7 @@
 
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Contracts\Config\Repository;
 use Twig_SimpleFunction;
 
 /**
@@ -18,16 +19,16 @@ class ConfigPlugin extends Plugin
     /**
      * The config object from Laravel.
      *
-     * @var \Illuminate\Auth\Guard
+     * @var Repository
      */
     protected $config;
 
     /**
      * Create a new ConfigPlugin instance.
      *
-     * @param \Illuminate\Auth\Guard
+     * @param Repository
      */
-    public function __construct(Guard $config)
+    public function __construct(Repository $config)
     {
         $this->config = $config;
     }
@@ -40,9 +41,9 @@ class ConfigPlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new Twig_SimpleFunction('config_check', [$this->config, 'check']),
-            new Twig_SimpleFunction('config_guest', [$this->config, 'guest']),
-            new Twig_SimpleFunction('config_user', [$this->config, 'user']),
+            new Twig_SimpleFunction('config', [$this->config, 'get']),
+            new Twig_SimpleFunction('config_get', [$this->config, 'get']),
+            new Twig_SimpleFunction('config_has', [$this->config, 'has']),
         ];
     }
 }
