@@ -1,0 +1,28 @@
+{
+    "name": "anomaly/config-plugin",
+    "type": "streams-addon",
+    "description": "A Streams Platform plugin that provides API access to Laravel's Config class.",
+    "keywords": [
+        "streams",
+        "plugin",
+        "config"
+    ],
+    "homepage": "http://pyrocms.com/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PyroCMS, Inc.",
+            "email": "support@pyrocms.com",
+            "homepage": "http://pyrocms.com/",
+            "role": "Owner"
+        }
+    ],
+    "support": {
+        "email": "support@anomaly.is"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\ConfigPlugin\\": "src/"
+        }
+    }
+}
