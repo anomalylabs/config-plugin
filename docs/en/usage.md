@@ -15,4 +15,4 @@ To retrieve a config value you can use `config` _or_ `config_get`.
 
 Use the `has` method to check if a config value exists.
 
-    {% verbatim %}{{ config_exists('dummy') }}{% endverbatim %} // false
+    {% verbatim %}{{ config_has('dummy') }}{% endverbatim %} // false
